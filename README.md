@@ -11,6 +11,11 @@
 
 ## 📋 Visão Geral do Projeto
 
+
+
+
+
+
 Aplicativo móvel cross-platform (iOS/Android) feito com React Native + Expo para comparar as especificações da Ford Ranger Raptor 3.0 V6 contra veículos concorrentes usando dados gerados por IA (simulados).
 
 **Principais funcionalidades:**
@@ -22,6 +27,10 @@ Aplicativo móvel cross-platform (iOS/Android) feito com React Native + Expo par
 - TypeScript para segurança de tipos
 
 ---
+<img width="1900" height="883" alt="Captura de tela 2026-05-24 213433" src="https://github.com/user-attachments/assets/709c4f2a-08d0-4d9c-bcea-f8f160b96d7f" />
+<img width="1918" height="925" alt="Captura de tela 2026-05-24 213422" src="https://github.com/user-attachments/assets/30e2289f-ba73-442f-8c4f-7a05bf541aee" />
+<img width="1918" height="928" alt="Captura de tela 2026-05-24 214129" src="https://github.com/user-attachments/assets/cfb3e2ab-fff9-4dac-8cb6-aa531fc297af" />
+<img width="1919" height="529" alt="Captura de tela 2026-05-24 213442" src="https://github.com/user-attachments/assets/22cfdd1e-4671-40f7-82e9-878c8cd32392" />
 
 ## 🚀 Início Rápido
 
