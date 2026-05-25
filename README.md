@@ -1,4 +1,14 @@
-﻿# Ford Ranger Raptor Competitor Intelligence MVP
+Gustavo Viega MArtins Lopes RM555885
+Gustavo Yuji Osugi RM555034
+Kaio Drago Lima Souza RM556095
+Otávio Santos de Lima Ferrão
+Vitor Rivas Cardoso RM556404
+
+ 
+ 
+ 
+ 
+ # Ford Ranger Raptor Competitor Intelligence MVP
 
 ## 📋 Visão Geral do Projeto
 
