@@ -1,22 +1,64 @@
 # Ford Ranger Raptor — Competitor Intelligence
 
-Aplicativo acadêmico em React Native + Expo para monitoramento de telemetria simulada da Ford Ranger Raptor e comparação técnica com um catálogo local de picapes concorrentes.
+Aplicativo acadêmico desenvolvido em React Native + Expo para apresentar a **telemetria simulada da Ford Ranger Raptor** e realizar **comparações técnicas com um catálogo local de picapes concorrentes**.
+
+> **Login administrativo:** use `admin@ford.com` com a senha `admin123` para entrar no usuário administrador do MVP local.
+
+## Demonstração visual
+
+### Login
+
+![Tela de login](docs/media/login.png)
+
+### Dashboard e telemetria
+
+![Dashboard operacional](docs/media/dashboard.png)
+
+### Comparação técnica
+
+![Comparação técnica](docs/media/comparison.png)
+
+### GIFs de demonstração
+
+#### Fluxo de login
+
+![Demonstração do login](docs/media/login-demo.gif)
+
+#### Telemetria ao vivo
+
+![Demonstração da telemetria](docs/media/telemetry-demo.gif)
+
+> A captura enviada para esta documentação como `sprint.gif` era, tecnicamente, uma imagem PNG estática. Para garantir que o GitHub interprete o arquivo corretamente, ela foi armazenada como `docs/media/login.png`.
 
 ## O que o projeto entrega
 
-- Dashboard operacional com telemetria simulada da Ranger Raptor.
-- Monitoramento detalhado de velocidade, RPM, acelerador, carga do motor, marcha, temperaturas, turbo e consumo.
-- Comparação técnica entre a Ranger Raptor e veículos do catálogo local.
-- Busca por marca, modelo e versão, com validação e mensagens para catálogo sem resultado.
-- Menu lateral com acesso ao Dashboard, Monitoramento, Comparação, ficha técnica, Relatório e Sobre.
-- Ficha técnica consolidada da Ranger Raptor.
-- Relatório técnico com leitura da telemetria atual.
-- Persistência local da última comparação usando AsyncStorage.
-- Interface corporativa limpa, responsiva e sem dependência de backend/API em runtime.
+- **Dashboard operacional** com telemetria simulada da Ranger Raptor.
+- **Monitoramento detalhado** de velocidade, RPM, acelerador, carga do motor, marcha, temperaturas, turbo e consumo.
+- **Comparação técnica** entre a Ranger Raptor e veículos do catálogo local.
+- **Busca por marca, modelo e versão**, com validação e mensagens para resultados inexistentes.
+- **Menu lateral** com navegação entre Dashboard, Monitoramento, Comparação, Ranger Raptor, Relatório e Sobre.
+- **Ficha técnica completa** da Ranger Raptor.
+- **Relatório técnico** com leitura da telemetria atual.
+- **Persistência local** de sessão e dados de comparação com AsyncStorage.
+- **Interface corporativa responsiva**, pensada para web, Android e teste com Expo Go.
+- **Arquitetura local-first**: nenhuma API da Ford é necessária durante a execução do MVP.
 
-## Stack e versões
+## Telas principais
 
-O projeto foi reorganizado em uma base consistente para **Expo SDK 57**, com **React Native 0.86** e **React 19.2**. O SDK 57 é a versão estável considerada neste projeto; o SDK 58 está em beta, por isso não é usado aqui. [Expo SDK 57 changelog](https://expo.dev/changelog/sdk-57)
+| Rota | Tela | Função |
+|---|---|---|
+| `/login` | Login | Autenticação local |
+| `/signup` | Cadastro | Criação de usuário local |
+| `/` | Dashboard | Painel operacional e telemetria |
+| `/monitoring` | Monitoramento | Telemetria detalhada em tempo real simulado |
+| `/comparison` | Comparação | Comparativo técnico Raptor × concorrente |
+| `/details` | Ranger Raptor | Ficha técnica consolidada |
+| `/report` | Relatório | Resumo técnico e leitura da telemetria |
+| `/about` | Sobre | Informações do projeto e da arquitetura |
+
+## Stack
+
+O projeto utiliza a seguinte base de dependências:
 
 | Tecnologia | Versão |
 |---|---|
@@ -26,87 +68,108 @@ O projeto foi reorganizado em uma base consistente para **Expo SDK 57**, com **R
 | Expo Router | `~57.0.23` |
 | TypeScript | `~6.0.3` |
 | AsyncStorage | `2.2.0` |
-| Node.js mínimo | `22.13.0` |
-
-O SDK 57 usa React Native 0.86 e React 19.2; a documentação atual também recomenda Node.js 22.13 ou superior. [referência oficial de versões do Expo](https://docs.expo.dev/versions/latest/)
+| Node.js | `22.13+` |
 
 ## Pré-requisitos
 
 - Node.js `22.13+`
 - npm
-- Conta Expo/EAS
+- Conta Expo/EAS para gerar builds
 - Expo Go para testes rápidos no celular
-- Android Studio somente para desenvolvimento nativo/emulador
+- Android Studio para desenvolvimento/emulador Android
 
-## Instalação do zero
+## Instalação
 
-Após clonar o repositório:
+Clone o repositório e entre na pasta do projeto:
 
 ```bash
+git clone https://github.com/OTAVIO48FERRAO/fiap-mdi-sprint-ford-compare.git
 cd fiap-mdi-sprint-ford-compare
+```
+
+Instale as dependências:
+
+```bash
 npm install
 ```
 
-Depois que a instalação terminar, o `package-lock.json` será criado. **Comite esse arquivo** junto com o restante do projeto para que as instalações futuras fiquem reproduzíveis.
-
-Não copie `node_modules`, `.expo`, `android` ou `ios` de outra máquina. O repositório é preparado para gerar esses artefatos localmente quando necessário.
-
-## Rodar no Expo Go
+Depois, execute o projeto em modo de desenvolvimento:
 
 ```bash
 npx expo start
 ```
 
-Abra o Expo Go no Android e leia o QR Code. Para o primeiro uso da conta, faça login no Expo Go. O computador e o celular normalmente devem estar na mesma rede Wi-Fi.
+Para testar no celular, abra o **Expo Go** e escaneie o QR Code apresentado pelo Expo. Em condições normais, computador e celular devem estar na mesma rede Wi-Fi.
 
-Para limpar o cache do Metro:
+## Login local
 
-```bash
-npx expo start --clear
+O MVP possui um usuário administrativo padrão em `mock/users.ts`:
+
+```text
+E-mail: admin@ford.com
+Senha: admin123
+Perfil: admin
 ```
 
-## Rodar no Android Studio / emulador
+As credenciais são apenas para demonstração acadêmica. As senhas são armazenadas localmente em texto claro e **não devem ser utilizadas em produção**.
 
-Depois de instalar as dependências:
-
-```bash
-npx expo prebuild
-npx expo run:android
-```
-
-O diretório `android/` é gerado pelo Expo e não precisa ser versionado para este projeto.
+Também é possível criar novos usuários pela tela de cadastro; os dados ficam no armazenamento local do dispositivo.
 
 ## Gerar APK
 
-O perfil `preview` do `eas.json` está configurado para gerar **`.apk`** em distribuição interna. O EAS usa `android.buildType: "apk"` para gerar um arquivo instalável diretamente em dispositivos e emuladores. [documentação oficial de APK com EAS](https://docs.expo.dev/build-reference/apk/)
+O projeto possui um perfil `preview` configurado no `eas.json` para gerar um **APK instalável**.
+
+Faça login no EAS:
 
 ```bash
 npx eas-cli@latest login
-npx eas-cli@latest build -p android --profile preview
 ```
 
-Se o projeto ainda não estiver vinculado ao EAS:
+Caso seja o primeiro build deste projeto no EAS, inicialize o projeto:
 
 ```bash
 npx eas-cli@latest init
+```
+
+Gere o APK:
+
+```bash
 npx eas-cli@latest build -p android --profile preview
 ```
 
-Quando o build terminar, o EAS mostrará o link do APK.
+Ao final, o EAS disponibiliza a página da build e o link de instalação/download do APK.
 
-## Estrutura
+## Android local / Android Studio
+
+Para gerar os arquivos nativos localmente:
+
+```bash
+npx expo prebuild
+```
+
+Depois execute:
+
+```bash
+npx expo run:android
+```
+
+O diretório `android/` é gerado pelo Expo e não é necessário versioná-lo quando o projeto é trabalhado com prebuild/CNG.
+
+## Arquitetura
+
+A aplicação utiliza uma abordagem **local-first**.
 
 ```text
 app/
-├── _layout.tsx       # Layout raiz, autenticação local e providers
-├── index.tsx         # Dashboard
-├── monitoring.tsx    # Telemetria detalhada
-├── comparison.tsx   # Comparação técnica
-├── details.tsx       # Ficha técnica da Raptor
-├── report.tsx        # Relatório técnico
-├── about.tsx         # Sobre o projeto
-├── login.tsx         # Login local
-└── signup.tsx        # Cadastro local
+├── _layout.tsx        # Layout raiz, providers e navegação
+├── login.tsx          # Login local
+├── signup.tsx         # Cadastro local
+├── index.tsx          # Dashboard
+├── monitoring.tsx     # Monitoramento da telemetria
+├── comparison.tsx    # Comparação técnica
+├── details.tsx        # Ficha técnica da Raptor
+├── report.tsx         # Relatório técnico
+└── about.tsx          # Sobre o projeto
 
 components/
 ├── ComparisonTable.tsx
@@ -118,7 +181,7 @@ context/
 
 mock/
 ├── fordData.ts
-├── aiResponseData.ts  # nome legado; catálogo local, sem IA externa
+├── aiResponseData.ts  # catálogo local; nome legado do MVP
 └── users.ts
 
 constants/
@@ -129,19 +192,25 @@ types/
 
 utils/
 └── dataFormatter.ts
+
+docs/
+└── media/
+    ├── login.png
+    ├── dashboard.png
+    ├── comparison.png
+    ├── login-demo.gif
+    └── telemetry-demo.gif
 ```
 
-## Dados e arquitetura
+## Dados e telemetria
 
-A aplicação é **local-first**. Os dados técnicos da Ranger Raptor e dos concorrentes ficam em `mock/`, e a telemetria é gerada por uma simulação a cada 1,5 segundo.
+Os dados técnicos são mantidos em `mock/` e a telemetria da Ranger Raptor é simulada localmente. A atualização do painel ocorre de forma periódica para representar atividade do veículo sem depender de uma API externa.
 
-O arquivo `mock/aiResponseData.ts` mantém o nome legado do MVP antigo, mas hoje não faz chamada de IA, API da Ford ou serviço externo. Ele funciona como catálogo técnico local e fornece as funções de busca usadas pela tela de comparação.
+O arquivo `mock/aiResponseData.ts` mantém o nome legado do MVP, mas **não realiza chamadas para uma IA ou para uma API em runtime**. Ele funciona como catálogo local e fornece a busca dos concorrentes utilizados na comparação.
 
-A última comparação é salva em `AsyncStorage` pela `ComparisonContext`.
+## Catálogo de veículos
 
-## Catálogo atual
-
-O catálogo contém veículos médios e algumas referências full-size usadas como parâmetro de comparação. Os dados documentados no código incluem, entre outros:
+O catálogo local inclui, entre outros:
 
 - Ford Ranger Raptor
 - Toyota Hilux SRX Plus
@@ -151,55 +220,72 @@ O catálogo contém veículos médios e algumas referências full-size usadas co
 - Mitsubishi Triton Katana
 - RAM 1500 / RAM 2500 como referências full-size
 
-Os campos técnicos que não existem oficialmente para a Ranger Raptor não são inventados na tabela de comparação.
+A tabela de comparação evita inventar campos que não estejam disponíveis na ficha utilizada para a Ranger Raptor.
 
-## Telemetria simulada
+## Persistência local
 
-A dashboard e a tela de Monitoramento usam uma função determinística em termos de limites, mas com pequenas variações aleatórias para simular atividade do veículo. A simulação mantém coerência entre velocidade, marcha, RPM, carga, turbo, temperatura e consumo.
+O aplicativo utiliza **AsyncStorage** para manter:
+
+- sessão do usuário;
+- usuário atual;
+- usuários cadastrados no MVP;
+- estado da comparação quando aplicável.
+
+Não existe banco de dados remoto nem backend obrigatório para executar a aplicação.
 
 ## Design
 
-A interface segue um sistema corporativo baseado em:
+O sistema visual segue uma linguagem corporativa limpa:
 
 - navy/preto para cabeçalhos e navegação;
 - branco e cinzas claros para superfícies;
-- azul Ford-inspired para ações;
-- verde, âmbar e vermelho somente para estados;
+- azul para ações principais;
+- verde, âmbar e vermelho para estados;
 - cards com bordas discretas, sombras leves e cantos arredondados.
 
-O projeto também desabilita seleção de texto e cursor de seleção no Expo Web, preservando o comportamento normal dos `TextInput`.
+No Expo Web, a seleção de texto da interface é desabilitada para evitar o cursor de texto em elementos visuais, mantendo `TextInput` editável.
+
+## Comandos principais
+
+```bash
+npm install
+npx expo start
+npx expo start --clear
+npx expo prebuild
+npx expo run:android
+npx eas-cli@latest login
+npx eas-cli@latest build -p android --profile preview
+```
+
+## Git — fluxo de atualização
+
+Depois de alterar o projeto:
+
+```bash
+git status
+git add .
+git commit -m "descreva a alteração"
+git push
+```
+
+O `package-lock.json` deve ser versionado quando for gerado/atualizado pelo `npm install`, para manter a instalação reproduzível.
 
 ## Checklist de validação
 
 - [ ] `npm install` termina sem `ERESOLVE`.
-- [ ] `npm ls expo react-native react expo-router` mostra a família do SDK 57.
-- [ ] `npx expo start` abre no Expo Go.
-- [ ] Login e cadastro funcionam com dados locais.
-- [ ] Dashboard mostra telemetria e atualiza automaticamente.
-- [ ] Menu lateral abre e navega entre as telas.
-- [ ] Comparação carrega a tabela sem depender de API externa.
-- [ ] `npx expo prebuild` gera o projeto Android.
-- [ ] `eas build -p android --profile preview` gera um `.apk`.
+- [ ] `npx expo start` abre o projeto.
+- [ ] Login administrativo funciona com as credenciais locais documentadas.
+- [ ] Cadastro local funciona.
+- [ ] Dashboard exibe a telemetria simulada.
+- [ ] Monitoramento mostra a evolução dos indicadores.
+- [ ] Menu lateral navega entre as telas.
+- [ ] Comparação carrega o catálogo sem API externa.
+- [ ] Ficha técnica e relatório são exibidos corretamente.
+- [ ] `npx eas-cli@latest build -p android --profile preview` gera o APK.
 
-## Solução de problemas
+## Uso acadêmico
 
-### `npm install` retorna `ERESOLVE`
-
-Apague `node_modules` e o `package-lock.json` da máquina e rode novamente:
-
-```bash
-npm install
-```
-
-Não misture arquivos de `node_modules` de versões diferentes e não use `npm audit fix --force` como etapa de instalação.
-
-### Expo Go mostra versão incompatível
-
-O Expo Go precisa ser compatível com o SDK usado pelo projeto. O projeto alvo é Expo SDK 57.
-
-### Android reclama de page size de 16 KB
-
-O projeto foi atualizado para React Native 0.86 / Expo SDK 57 justamente para sair da família antiga do RN 0.74. Se ainda aparecer um APK antigo, remova o build instalado do dispositivo e gere um novo a partir desta base.
+Projeto desenvolvido para entrega acadêmica. Os dados de veículos e a telemetria são utilizados para fins demonstrativos e não substituem as fichas técnicas oficiais das fabricantes.
 
 ## Equipe
 
@@ -208,7 +294,3 @@ O projeto foi atualizado para React Native 0.86 / Expo SDK 57 justamente para sa
 - Kaio Drago Lima Souza — RM556095
 - Otávio Santos de Lima Ferrão
 - Vitor Rivas Cardoso — RM556404
-
-## Licença / uso acadêmico
-
-Projeto desenvolvido para entrega acadêmica. Dados de veículos são usados para fins demonstrativos e não substituem fichas técnicas oficiais das fabricantes.
