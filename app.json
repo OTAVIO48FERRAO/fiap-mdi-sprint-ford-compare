@@ -32,6 +32,12 @@
     "plugins": [
       "expo-router"
     ],
-    "scheme": "ford-raptor-compare"
+    "scheme": "ford-raptor-compare",
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "e15ee9b3-83de-45d9-a60c-dc8e459004a7"
+      }
+    }
   }
 }
