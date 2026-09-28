@@ -8,15 +8,15 @@ Aplicativo acadêmico desenvolvido em React Native + Expo para apresentar a **te
 
 ### Login
 
-![Tela de login](docs/media/login.png)
+![Tela de login](login.png)
 
 ### Dashboard e telemetria
 
-![Dashboard operacional](docs/media/dashboard.png)
+![Dashboard operacional](dashboard.png)
 
 ### Comparação técnica
 
-![Comparação técnica](docs/media/comparison.png)
+![Comparação técnica](comparison.png)
 
 ### GIFs de demonstração
 
